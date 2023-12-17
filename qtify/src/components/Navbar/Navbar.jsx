@@ -8,8 +8,8 @@ function Navbar() {
   return (
     <div className={styles.container}>
         <Logo/>
-        <Search placeholder="Search a album of your choice"/>
-        <Button>Give feedback</Button>
+        <Search placeholder="Search a song of your choice"/>
+        <Button>Give Feedback</Button>
 
     </div>
   )
