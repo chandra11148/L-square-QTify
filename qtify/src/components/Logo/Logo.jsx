@@ -1,10 +1,11 @@
 import React from 'react'
+import { ReactComponent as LogoImg } from '../../assets/musicLogo.svg';
 
 function Logo() {
   return (
     <div className='logoWrapper'>
-        <img src='../../assets/musicLogo.png'/>
-        <p>Qtify</p>
+        <LogoImg><p>Qtify</p></LogoImg>
+        
     </div>
   )
 }
