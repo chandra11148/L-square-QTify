@@ -7,7 +7,7 @@ import Button from '../Button/Button';
 function Navbar() {
   return (
     <div className={styles.navbarContainer}>
-        <Logo>Qtify</Logo>
+        <Logo Img="../../assets/musicLogo.svg"/>
         <Search placeholder="Search a song of your choice"/>
         <Button>Give Feedback</Button>
 

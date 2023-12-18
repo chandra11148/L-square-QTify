@@ -1,12 +1,11 @@
 import React from 'react'
-import { ReactComponent as LogoImg } from '../../assets/musicLogo.svg';
+import styles from "./Logo.module.css";
 
-function Logo({children}) {
+function Logo({Img}) {
   return (
-    <div className='logoWrapper'>
-        <LogoImg>{children}</LogoImg>
-        
-    </div>
+    
+        <img src={Img} alt='logo' className={styles.Logo}/>
+      
   )
 }
 
