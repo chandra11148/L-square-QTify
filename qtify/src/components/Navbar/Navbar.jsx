@@ -7,7 +7,7 @@ import Button from '../Button/Button';
 function Navbar() {
   return (
     <div className={styles.navbarContainer}>
-        <Logo Img="../../assets/musicLogo.svg"/>
+        <Logo Img="../../assets/musicLogo.svg" width="67px" height="34px"/>
         <Search placeholder="Search a song of your choice"/>
         <Button>Give Feedback</Button>
 
