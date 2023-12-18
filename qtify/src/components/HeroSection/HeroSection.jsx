@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./HeroSection.module.css";
 import Logo from "../Logo/Logo";
+import heroImg from "../../assets/vibrating-headphone.png";
 
 function HeroSection() {
   return (
@@ -9,7 +10,7 @@ function HeroSection() {
         <h1>100 Thousand Songs, ad-free</h1>
         <h1>and “Over thousands podcast episodes</h1>
       </div>
-      <Logo Img="../../assets/vibrating-headphone.png" width="212px" height="212px"/>
+      <Logo Img={heroImg} width="212px" height="212px"/>
     </div>
   );
 }
