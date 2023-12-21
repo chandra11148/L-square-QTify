@@ -36,7 +36,7 @@ function Section({ data }) {
           {data.length>0 &&
             data.map((album) => {
                 // console.log(album);
-              return <div><Card data={album} type="album" /></div>;
+              return <div key={album.id}><Card data={album} type="album" /></div>;
             })}
         </div>
       )}
