@@ -1,0 +1,29 @@
+.container{
+    margin-top: 24px;
+    padding-left: 32px;
+    padding-right: 32px;
+    width: 100%;
+}
+.heading{
+    display: flex;
+    justify-content: space-between;
+    
+    margin-bottom: 18px;
+}
+.button{
+    background-color: var(--color-black);
+    border: none;
+    font-size: 20px;
+    color: var(--color-primary);
+    cursor: pointer;
+}
+.button:hover{
+    opacity: 0.3;
+}
+.gridContainer{
+    
+    display: grid;
+    grid-template-columns: repeat(7,159px);
+    grid-template-rows: repeat(2,1fr);
+    gap: 40px;
+}
