@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import styles from "./Section.module.css";
 import Card from "../Card/Card";
 
-function Section({ data }) {
+function Section({ title,data }) {
   const [isCollapsed, setIsCollaped] = useState(true);
 
   return (
     <div className={styles.container}>
       <div className={styles.heading}>
-        <p style={{fontSize:"20px"}}>Top Albums</p>
+        <p style={{fontSize:"20px"}}>{title}</p>
         {isCollapsed ? (
           <button
             className={styles.button}
