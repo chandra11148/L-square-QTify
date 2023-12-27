@@ -27,3 +27,6 @@
     grid-template-rows: repeat(2,1fr);
     gap: 40px;
 }
+.filterWrapper{
+    margin-top: 15px;
+}

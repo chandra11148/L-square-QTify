@@ -4,6 +4,7 @@ import Tooltip from "@mui/material/Tooltip";
 import Chip from "@mui/material/Chip";
 
 function Card({ data, type }) {
+  
   const getCard = (type) => {
     switch (type) {
       case "album": {
@@ -31,8 +32,9 @@ function Card({ data, type }) {
           </Tooltip>
         
         );
+        break;
       }
-      case "song": {
+      case "songs": {
         
         return (
           <div className={styles.wrapper}>
@@ -50,6 +52,7 @@ function Card({ data, type }) {
             </div>
           </div>
         );
+        break;
       }
       default: {
         return <></>;

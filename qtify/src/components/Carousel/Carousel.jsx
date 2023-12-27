@@ -19,6 +19,7 @@ const Controls =({data})=>{
 }
 
 function Carousel({data,renderComponent}) {
+  // console.log(data);
   return (
     <div className={styles.wraper}>
       <Swiper
@@ -33,7 +34,7 @@ function Carousel({data,renderComponent}) {
         <Controls data={data}/>
         <CarouselLeftNavigation/>
         <CarouselRightNavigation/>
-        {data.map((el)=><SwiperSlide>{renderComponent(el)}</SwiperSlide>)}
+        {data && data.map((el)=>(<SwiperSlide>{renderComponent(el)}</SwiperSlide>))}
       </Swiper>
     </div>
   );

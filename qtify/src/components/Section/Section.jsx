@@ -1,47 +1,73 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Section.module.css";
 import Card from "../Card/Card";
 import Carousel from "../Carousel/Carousel";
+import Filters from "../Filters/Filters";
 
-function Section({ title,data,type }) {
+function Section({ title, data, filterSource, type }) {
   const [isCollapsed, setIsCollaped] = useState(true);
+  const [filters, setFilters] = useState([{ key: "all", label: "All" }]);
+  const [selectedFilterIndex, setSelectedFilterIndex] = useState(0);
+  useEffect(() => {
+    if (filterSource) {
+      filterSource().then((response) => {
+        const { data } = response;
+        setFilters([...filters, ...data]);
+      });
+    }
+  }, []);
+  const showFilters = filters.length > 1;
+  const cardToRender = data.filter((card) =>
+    showFilters && selectedFilterIndex !== 0
+      ? card.genre.key === filters[selectedFilterIndex].key
+      : card
+  );
 
   return (
     <div className={styles.container}>
       <div className={styles.heading}>
-        <p style={{fontSize:"20px"}}>{title}</p>
-        {isCollapsed ? (
+        <p style={{ fontSize: "20px" }}>{title}</p>
+
+        {!showFilters && (
           <button
             className={styles.button}
             onClick={() => {
-              setIsCollaped(false);
+              setIsCollaped((prevIsCollapsed) => {
+                return !prevIsCollapsed;
+              });
             }}
           >
-            Show all
-          </button>
-        ) : (
-          <button
-            className={styles.button}
-            onClick={() => {
-              setIsCollaped(true);
-            }}
-          >
-            Collapse
+            {isCollapsed ? "Show all" : "Collapse"}
           </button>
         )}
       </div>
+      {showFilters && (
+        <div className={styles.filterWrapper}>
+          <Filters
+            filters={filters}
+            selectedFilterIndex={selectedFilterIndex}
+            setSelectedFilterIndex={setSelectedFilterIndex}
+          />
+        </div>
+      )}
       {isCollapsed ? (
+        
         <Carousel
-          data={data}
-          renderComponent={(data)=><Card data={data} type={type}/>}
+          data={cardToRender}
+          renderComponent={(data) => <Card data={data} type={type} />}
         />
-        // <h1>Carousel</h1>
+        
       ) : (
+        // <h1>Carousel</h1>
         <div className={styles.gridContainer}>
-          {data.length>0 &&
-            data.map((album) => {
-                // console.log(album);
-              return <div key={album.id}><Card data={album} type="album" /></div>;
+          {
+            cardToRender.map((album) => {
+              // console.log(album);
+              return (
+                <div key={album.id}>
+                  <Card data={album} type="album" />
+                </div>
+              );
             })}
         </div>
       )}
