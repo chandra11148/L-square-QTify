@@ -19,6 +19,7 @@ body{
   background-color: var(--color-black);
   color: var(--color-white);
   line-height: 1.5;
+  overflow-x: hidden;
   -webkit-font-smoothing:antialiased;
 }
 img,picture,canvas,svg,video{
@@ -34,4 +35,8 @@ p,h1,h2,h3,h4,h5,h6{
 #root,
 #_next{
   isolation: isolate;
+}
+
+.swiper-slide{
+  width: auto !important;
 }

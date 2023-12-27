@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import styles from "./Section.module.css";
 import Card from "../Card/Card";
+import Carousel from "../Carousel/Carousel";
 
-function Section({ title,data }) {
+function Section({ title,data,type }) {
   const [isCollapsed, setIsCollaped] = useState(true);
 
   return (
@@ -30,7 +31,11 @@ function Section({ title,data }) {
         )}
       </div>
       {isCollapsed ? (
-        <div></div>
+        <Carousel
+          data={data}
+          renderComponent={(data)=><Card data={data} type={type}/>}
+        />
+        // <h1>Carousel</h1>
       ) : (
         <div className={styles.gridContainer}>
           {data.length>0 &&
